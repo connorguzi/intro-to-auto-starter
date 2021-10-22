@@ -48,7 +48,7 @@ class Safety(object):
                 theta = (0 - scan_msg.angle_min) + (scan_msg.angle_increment * i) 
                 TTC.append(scan_msg.ranges[i] / max([-self.speed * cos(theta), 0.00000000000001]))
         # TODO: publish brake message and publish controller bool
-        if min(TTC) <= 1:
+        if min(TTC) <= 0.5:
             print(min(TTC))
             self.bVal.data = True
             self.ackermann.publish(self.brake)
@@ -63,5 +63,6 @@ class Safety(object):
 
 if __name__ == '__main__':
     rospy.init_node('safety_node')
+    print('I am ready now')
     safety_node = Safety()
     rospy.spin()
