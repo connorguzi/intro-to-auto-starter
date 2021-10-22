@@ -43,18 +43,17 @@ class Safety(object):
     def scan_callback(self, scan_msg):
         # TODO: calculate TTC
         TTC = []
-        theta = 0 - scan_msg.angle_min
         for i in range(len(scan_msg.ranges)):
             if type(scan_msg.ranges[i]) == float and (scan_msg.ranges[i]) != 0: 
                 theta = (0 - scan_msg.angle_min) + (scan_msg.angle_increment * i) 
                 TTC.append(scan_msg.ranges[i] / max([-self.speed * cos(theta), 0.00000000000001]))
         # TODO: publish brake message and publish controller bool
-        print(min(TTC))
         if min(TTC) <= 1:
-            print('I am braking now')
+            print(min(TTC))
             self.bVal.data = True
-            self.bool.publish(self.bVal)
             self.ackermann.publish(self.brake)
+            self.bool.publish(self.bVal)
+            
         else:
             self.bVal.data = False
             self.bool.publish(self.bVal)
