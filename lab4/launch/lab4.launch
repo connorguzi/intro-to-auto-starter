@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="sense" pkg="lab4" type="dist_finder.py" output="screen"/>
+
+	<node name="control" pkg="lab4" type="car_control.py" output="screen"/>
+</launch>
