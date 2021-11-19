@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="sense" pkg="lab5" type="gap_finder.py" output="screen"/>
+
+	<node name="control" pkg="lab5" type="car_steer.py" output="screen"/>
+</launch>
