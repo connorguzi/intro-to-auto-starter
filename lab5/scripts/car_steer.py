@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from lab4.msg import PIDInput
+from pid_msgs.msg import PIDInput
 from ackermann_msgs.msg import AckermannDriveStamped
 from geometry_msgs.msg import PoseStamped
 

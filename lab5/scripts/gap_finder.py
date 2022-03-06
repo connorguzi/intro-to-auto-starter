@@ -4,7 +4,7 @@ import rospy
 import math
 from numpy import percentile
 from sensor_msgs.msg import LaserScan
-from lab4.msg import PIDInput
+from pid_msgs.msg import PIDInput
 from nav_msgs.msg import Odometry
 
 
